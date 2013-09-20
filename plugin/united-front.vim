@@ -39,7 +39,7 @@ augroup END
 
 "If this version of vim supports focus detection, use that instead so we don't need to
 "send updates as often.
-function! s:SwitchToFocusMode(gained)
+function! s:SwitchToFocusMode()
   augroup UnitedFront
     autocmd! CursorHold
     autocmd! FocusLost
