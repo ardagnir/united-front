@@ -58,7 +58,7 @@ function! s:SendVimInfo()
     call s:WriteFrontFile()
     for x in split(serverlist(),"\n")
       if x !=? v:servername && v:servername !=""
-        exec 'silent !vim --servername '.x.' --remote-send "<C-\\><C-N>:call UnitedFront_ReadFrontFile()<CR>:echo \"\"<CR>"'
+        call remote_expr( x, "UnitedFront_ReadFrontFile()")
       endif
     endfor
   endif
