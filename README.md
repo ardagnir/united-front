@@ -8,11 +8,12 @@ Automatically sync registers between vim instances.
 
 This plugin will automatically share the registers of any and/or all vim instances.
 
-All vim instances that you want to share registers need to be started in server mode. GVim does this automatically, but all other versions of vim must be told to start in server mode.
+All vim instances that you want to share registers need to be started in server mode.
+GVim does this automatically, but terminal vim must be told to do this.
 
     vim --servername whateveryouwant
 
-If you alias the vim command to always use a server everything will be automatic and you can spend more time editing with your awesome new sharable buffers.
+If you alias the vim command to always use a server, everything will be automatic and you can spend more time editing with your awesome new shared registers.
 
     alias vim="vim --servername robotsky"
 
