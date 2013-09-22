@@ -65,12 +65,12 @@ function! s:SendVimInfo()
 endfunction
 
 function! s:WriteFrontFile()
-  call writefile(s:PackRegs(s:savedRegs), '/home/gandalf/.unitedfront')
+  call writefile(s:PackRegs(s:savedRegs), $HOME.'/.unitedfront')
 endfunction
 
 "This can't be script local because it is called over the server
 function! UnitedFront_ReadFrontFile()
-  let reglines = readfile('/home/gandalf/.unitedfront')
+  let reglines = readfile($HOME.'/.unitedfront')
   let s:savedRegs = s:UnpackRegs(join(reglines, "\n"))
   for r in keys(s:savedRegs)
     call setreg(r, s:savedRegs[r][1], s:savedRegs[r][0])
