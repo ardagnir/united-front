@@ -1,12 +1,10 @@
 united-front
 ============
 
-Automatically sync registers between vim instances.
+United-front will automatically share the registers of any and/or all vim instances.
 
 > "Buffer separately, but yank together!"<br/>
 > -- <i>Leon Robotsky</i>
-
-This plugin will automatically share the registers of any and/or all vim instances.
 
 All vim instances that you want to share registers need to be started in server mode.
 GVim does this automatically, but terminal vim must be told to do this.
