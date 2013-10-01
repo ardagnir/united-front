@@ -14,7 +14,9 @@ GVim does this automatically, but terminal vim must be told to do this.
 If you alias the vim command to always use a server, everything will be automatic and you can spend more time editing with your awesome new shared registers.
 
     alias vim="vim --servername robotsky"
-    
+
+If you only want some of your vim servers united, only source united-front for those vim servers.
+
 ##Installation
 Use pathogen.
 
