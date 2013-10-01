@@ -58,7 +58,8 @@ function! s:SendVimInfo()
     call s:WriteFrontFile()
     for x in split(serverlist(),"\n")
       if x !=? v:servername && v:servername !=""
-        call remote_expr( x, "UnitedFront_ReadFrontFile()")
+        "don't give an error if other vim doesn't have united-front
+        silent! call remote_expr( x, "UnitedFront_ReadFrontFile()")
       endif
     endfor
   endif
