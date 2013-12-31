@@ -18,10 +18,14 @@ If you alias the vim command to always use a server, everything will be automati
 If you only want some of your vim servers united, only source united-front for those vim servers.
 
 ##Installation
-Use pathogen.
+From your shell, with [pathogen](https://github.com/tpope/vim-pathogen):
 
     cd ~/.vim/bundle
     git clone https://github.com/ardagnir/united-front
+    
+Or from within vim, using [vizardry](https://github.com/ardagnir/vizardry)</a>:
+
+    :Invoke united-front
 
 ##Notes
 - United-front will create a file $HOME/.unitedfront that is used to sync registers.
