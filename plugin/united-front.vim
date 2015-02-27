@@ -8,12 +8,12 @@
 " it under the terms of the GNU Affero General Public License as published by
 " the Free Software Foundation, either version 3 of the License, or
 " (at your option) any later version.
-" 
+"
 " This program is distributed in the hope that it will be useful,
 " but WITHOUT ANY WARRANTY; without even the implied warranty of
 " MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 " GNU Affero General Public License for more details.
-" 
+"
 " You should have received a copy of the GNU Affero General Public License
 " along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -56,12 +56,14 @@ function! s:SendVimInfo()
   endfor
   if len(differences)
     call s:WriteFrontFile()
-    for x in split(serverlist(),"\n")
-      if x !=? v:servername && v:servername !=""
-        "don't give an error if other vim doesn't have united-front
-        silent! call remote_expr( x, "UnitedFront_ReadFrontFile()")
-      endif
-    endfor
+    if (has('clientserver') && len(split(serverlist(), "\n")) > 1 )
+        for x in split(serverlist(),"\n")
+          if x !=? v:servername && v:servername !=""
+            "don't give an error if other vim doesn't have united-front
+            silent! call remote_expr( x, "UnitedFront_ReadFrontFile()")
+          endif
+        endfor
+    endif
   endif
 endfunction
 
@@ -167,7 +169,7 @@ let s:savedRegs=
       "these would be silly
       "\ '=': ['', ''],
       "\ '_': ['', ''],
-      
+
       "these should already be synced
       "\ '*': ['', ''],
       "\ '+': ['', ''],
