@@ -60,7 +60,12 @@ function! s:SendVimInfo()
         for x in split(serverlist(),"\n")
           if x !=? v:servername && v:servername !=""
             "don't give an error if other vim doesn't have united-front
-            silent! call remote_expr( x, "UnitedFront_ReadFrontFile()")
+            if v:version >= 800 && has("patch492")
+              "provide a timeout if supported
+              silent! call remote_expr(x, "UnitedFront_ReadFrontFile()", "", 1)
+            else
+              silent! call remote_expr(x, "UnitedFront_ReadFrontFile()")
+            endif
           endif
         endfor
     endif
